@@ -51,7 +51,9 @@ class Generator
         fclose($addConstraints);
         fclose($dropConstraints);
 
+        $this->dropForeignKeys();
         $this->writeSchemaAndData($this->selectTableNames(), $this->directoriesConfig->getPathToSchema(), $this->directoriesConfig->getPathToData(), $withData);
+        $this->addForeignKeys();
     }
 
     /**
