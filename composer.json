@@ -18,6 +18,9 @@
   "autoload": {
     "psr-0" : {
       "LudwigBr\\postgres_migration" : ""
-    }
+    },
+    "exclude-from-classmap": [
+      "/example/"
+    ]
   }
 }
