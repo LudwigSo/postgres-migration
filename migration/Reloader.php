@@ -96,8 +96,8 @@ class Reloader
     protected function addGenericFiles($files, $path)
     {
         foreach ($files as $file) {
-            if(!is_file("$path/$file")) {
-                break;
+            if(!is_file("$path/$file") || strpos($file, '.sql') === false) {
+                continue;
             }
             exec("sudo psql --dbname=".$this->databaseConfig->getDbName()." --username=".$this->databaseConfig->getUser()." < $path/$file");
         }
