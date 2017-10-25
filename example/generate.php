@@ -2,8 +2,11 @@
 
 require_once __DIR__.'/config/includes.php';
 
+$dbConfig = new \LudwigBr\postgres_migration\example\config\Database();
 $generator = new \LudwigBr\postgres_migration\migration\Generator(
-    new \LudwigBr\postgres_migration\example\config\Database(),
-    new \LudwigBr\postgres_migration\example\config\Directories()
+    $dbConfig,
+    new \LudwigBr\postgres_migration\example\config\Directories(),
+    new PDO($dbConfig->getDsn())
 );
+
 $generator->generateFiles(true);

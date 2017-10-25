@@ -30,12 +30,13 @@ class Generator
      * Generator constructor.
      * @param DatabaseInterface $databaseConfig
      * @param DirectoriesInterface $directoriesConfig
+     * @param \PDO $pdo
      */
-    public function __construct(DatabaseInterface $databaseConfig, DirectoriesInterface $directoriesConfig)
+    public function __construct(DatabaseInterface $databaseConfig, DirectoriesInterface $directoriesConfig, \PDO $pdo)
     {
         $this->databaseConfig = $databaseConfig;
         $this->databaseConfig = $directoriesConfig;
-        $this->pdo = new \PDO($databaseConfig->getDsn());
+        $this->pdo = $pdo;
     }
 
     /**
