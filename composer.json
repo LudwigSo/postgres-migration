@@ -1,6 +1,6 @@
 {
   "name": "ludwig-br/postgres-migration",
-  "description": "",
+  "description": "Lightweight php migration tool for PostgreSQL databases",
   "authors": [
     {
       "name": "Ludwig Breitsprecher",
@@ -9,7 +9,11 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "php": ">=5.6.0"
+    "php": ">=7.1.0",
+    "postgres": ">=9.6"
+  },
+  "suggest": {
+    "postgres": ">=10"
   },
   "autoload": {
     "psr-0" : {
