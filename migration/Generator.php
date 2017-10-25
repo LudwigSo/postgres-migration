@@ -35,7 +35,7 @@ class Generator
     public function __construct(DatabaseInterface $databaseConfig, DirectoriesInterface $directoriesConfig, \PDO $pdo)
     {
         $this->databaseConfig = $databaseConfig;
-        $this->databaseConfig = $directoriesConfig;
+        $this->directoriesConfig = $directoriesConfig;
         $this->pdo = $pdo;
     }
 
@@ -135,7 +135,7 @@ class Generator
      * @param resource $addFile
      * @param resource $dropFile
      */
-    protected function writeAllButCompositeForeignKeys(\PDOStatement $fks, resource $addFile, resource $dropFile) {
+    protected function writeAllButCompositeForeignKeys(\PDOStatement $fks, $addFile, $dropFile) {
         while($obj = $fks->fetchObject()) {
             $drop_constraint = 'ALTER TABLE ONLY '.$obj->table_name.' DROP CONSTRAINT IF EXISTS "'.$obj->constraint_name.'" CASCADE;';
             fwrite($dropFile, $drop_constraint.PHP_EOL);
@@ -150,7 +150,7 @@ class Generator
      * @param resource $addFile
      * @param resource $dropFile
      */
-    protected function writeCompositeForeignKeys(\PDOStatement $fks, resource $addFile, resource $dropFile) {
+    protected function writeCompositeForeignKeys(\PDOStatement $fks, $addFile, $dropFile) {
         $compositeFKs = $this->restructureCompositeForeignKeyStatement($fks);
         foreach ($compositeFKs as $compositeFK) {
             $drop_constraint = $drop_constraint = 'ALTER TABLE ONLY '.$compositeFK['table_name'].' DROP CONSTRAINT IF EXISTS "'.$compositeFK['constraint_name'].'" CASCADE;';
