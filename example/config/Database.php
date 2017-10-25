@@ -8,18 +8,14 @@ use LudwigBr\postgres_migration\config\DatabaseInterface;
 
 /**
  * Class Database
+ *
+ * ToDo:
+ * If you don't use a custom config file please fill in your information into the following getMethods()!
+ *
  * @package LudwigBr\postgres_migration\example\config
  */
 class Database implements DatabaseInterface
 {
-    /**
-     * @return string
-     */
-    public function getDsn() :string
-    {
-        return $this->getDriver().":host=".$this->getHost().";port=".$this->getPort().";dbname=".$this->getDbName().";user=".$this->getUser().";password=".$this->getPassword();
-    }
-
     /**
      * @return string
      */
@@ -76,4 +72,11 @@ class Database implements DatabaseInterface
         return 'postgres';
     }
 
+    /**
+     * @return string
+     */
+    public function getDsn() :string
+    {
+        return $this->getDriver().":host=".$this->getHost().";port=".$this->getPort().";dbname=".$this->getDbName().";user=".$this->getUser().";password=".$this->getPassword();
+    }
 }

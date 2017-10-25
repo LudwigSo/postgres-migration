@@ -8,6 +8,10 @@ use LudwigBr\postgres_migration\config\DirectoriesInterface;
 
 /**
  * Class Directories
+ *
+ * ToDo:
+ * If you don't use a custom config file please fill in your information into the following getMethods()!
+ *
  * @package LudwigBr\postgres_migration\example\config
  */
 class Directories implements DirectoriesInterface
