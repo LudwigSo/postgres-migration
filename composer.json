@@ -7,10 +7,10 @@
       "email": "ludwig@breitsprecher.net"
     }
   ],
+  "license": "MIT",
   "minimum-stability": "dev",
   "require": {
-    "php": ">=7.1.0",
-    "postgres": ">=9.6"
+    "php": ">=7.1.0"
   },
   "suggest": {
     "postgres": ">=10"
